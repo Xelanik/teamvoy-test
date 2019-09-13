@@ -1,8 +1,10 @@
 import React from 'react';
-
+import logo from '../../assets/Pokemon_logo.svg'
 const Header = () => (
   <header>
-    <h1>Pokemon</h1>
+    <div className='Logo'>
+      <img src={logo} alt={logo} />
+    </div>
   </header>
 );
 export default Header

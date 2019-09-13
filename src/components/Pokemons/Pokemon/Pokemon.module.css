@@ -1,10 +1,9 @@
 .PokemonWrap {
+  overflow: hidden;
   width: 100%;
-  border: 3px solid red;
-  border-radius: 10px;
-
+  background-color: rgba(255, 255, 255);
+  border-radius: 3px;
   padding: 15px;
-
   display: flex;
   flex-direction: column;
   align-items: center

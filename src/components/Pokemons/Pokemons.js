@@ -4,52 +4,51 @@ import Style from './Pokemons.module.css';
 import Loader from '../Loader/Loader';
 
 import {connect} from 'react-redux';
-import * as actionType from '../../store/actions'
-
-const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=12';
+import * as actionCreators from '../../store/actions';
 
 class Pokemons extends Component {
   
-  state = {
-    pokemonList: [],
-    next: ''
-  }
-  
   componentDidMount(){
-    this.fetchPokemons(URL)   
+    this.props.getPokemons(this.props.url)
+    this.props.getTypes(this.props.typeUrl)
   }
 
-  loadMore = () => {
-    this.fetchPokemons(this.state.next)  
+  onChangeHandler = (event) => {
+    this.props.sortBy(event.target.value)
   }
 
-  fetchPokemons = url => {
-    const getPokemonList = async url => {
-      let response = await fetch(url);
-      let data = await response.json();
-      return data;
-    }
-
-    (async () => {
-      let pokemonList = await getPokemonList(url);
-      
-      if(pokemonList.next !== 0) this.setState({next: pokemonList.next})
-
-      let newList = [ ...this.state.pokemonList, ...pokemonList.results]
-
-      this.setState({pokemonList: newList})
-    })();
-  }
-  
   render(){
-    if(this.state.pokemonList.length !== 0){
+    const {pokemonList, nextLink, getPokemons, typeList} = this.props;
+
+    if(pokemonList && typeList) {
+
+      const pokeList = pokemonList.map(el => {
+        return (
+          <Pokemon 
+            key = {el.name} 
+            name = {el.name} 
+            url = {el.url} 
+            clicked = {this.props.showPokemonInfo}/>
+          )
+        }
+      );
+
       return (
         <main className={Style.Main}>
+          <div className={Style.Select}>
+            <select onChange={this.onChangeHandler}>
+              <option value='0'>Sort by type</option>
+              { typeList.map( type => <option key = {type.name} value = {type.name}>{type.name}</option>)}}
+            </select>
+          </div>
           <div className={Style.PokemonList}>
-            { this.state.pokemonList.map(el => <Pokemon key = {el.name} name = {el.name} url = {el.url} clicked = {this.props.showPokemonInfo}/>) }
+            { pokeList }
           </div>
 
-          <button className={Style.LoadMore} onClick={this.loadMore}>Load More ...</button> 
+          <button 
+            className={Style.LoadMore} 
+            onClick={() => getPokemons(nextLink)}> <div className={Style.PokeballCenter}><div className={Style.PokeballCenter_small}></div></div> Load More ... 
+          </button> 
         </main>
       )   
     } else {
@@ -58,15 +57,14 @@ class Pokemons extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    pokemonList: state.pokemonList
-  }
-}
+const mapStateToProps = ({url, pokemonList, nextLink, typeUrl, typeList}) => ({url, pokemonList, nextLink, typeUrl, typeList});
 
 const mapDispatchToProps = dispatch => {
   return {
-    showPokemonInfo: (pokemoInfo) => dispatch({type: actionType.SHOW_POKEMON_INFO, showInfo: pokemoInfo})
+    sortBy: type => dispatch(actionCreators.sort(type)),
+    getPokemons: url => dispatch(actionCreators.get_pokemon(url)),
+    showPokemonInfo: (pokemonInfo) => dispatch(actionCreators.show_pokemon_info(pokemonInfo)),
+    getTypes: url => dispatch(actionCreators.get_all_types(url))
   }
 }
 
