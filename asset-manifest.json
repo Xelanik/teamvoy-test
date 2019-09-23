@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Xelanik/teamvoy-test/static/css/main.cd79211e.chunk.css",
-    "main.js": "/Xelanik/teamvoy-test/static/js/main.ee2524ca.chunk.js",
-    "main.js.map": "/Xelanik/teamvoy-test/static/js/main.ee2524ca.chunk.js.map",
-    "runtime~main.js": "/Xelanik/teamvoy-test/static/js/runtime~main.537a418d.js",
-    "runtime~main.js.map": "/Xelanik/teamvoy-test/static/js/runtime~main.537a418d.js.map",
-    "static/js/2.b2f540c7.chunk.js": "/Xelanik/teamvoy-test/static/js/2.b2f540c7.chunk.js",
-    "static/js/2.b2f540c7.chunk.js.map": "/Xelanik/teamvoy-test/static/js/2.b2f540c7.chunk.js.map",
-    "index.html": "/Xelanik/teamvoy-test/index.html",
-    "precache-manifest.2e5381f9115b9286f70cce88dbc14ba5.js": "/Xelanik/teamvoy-test/precache-manifest.2e5381f9115b9286f70cce88dbc14ba5.js",
-    "service-worker.js": "/Xelanik/teamvoy-test/service-worker.js",
-    "static/css/main.cd79211e.chunk.css.map": "/Xelanik/teamvoy-test/static/css/main.cd79211e.chunk.css.map",
-    "static/media/Pokemon_logo.svg": "/Xelanik/teamvoy-test/static/media/Pokemon_logo.605ebff0.svg"
+    "main.css": "/teamvoy-test/static/css/main.cd79211e.chunk.css",
+    "main.js": "/teamvoy-test/static/js/main.ee2524ca.chunk.js",
+    "main.js.map": "/teamvoy-test/static/js/main.ee2524ca.chunk.js.map",
+    "runtime~main.js": "/teamvoy-test/static/js/runtime~main.9adb93c3.js",
+    "runtime~main.js.map": "/teamvoy-test/static/js/runtime~main.9adb93c3.js.map",
+    "static/js/2.b2f540c7.chunk.js": "/teamvoy-test/static/js/2.b2f540c7.chunk.js",
+    "static/js/2.b2f540c7.chunk.js.map": "/teamvoy-test/static/js/2.b2f540c7.chunk.js.map",
+    "index.html": "/teamvoy-test/index.html",
+    "precache-manifest.7ac839eeff0b882ad47cc3e5b3887428.js": "/teamvoy-test/precache-manifest.7ac839eeff0b882ad47cc3e5b3887428.js",
+    "service-worker.js": "/teamvoy-test/service-worker.js",
+    "static/css/main.cd79211e.chunk.css.map": "/teamvoy-test/static/css/main.cd79211e.chunk.css.map",
+    "static/media/Pokemon_logo.svg": "/teamvoy-test/static/media/Pokemon_logo.605ebff0.svg"
   }
 }
